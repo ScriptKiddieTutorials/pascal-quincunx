@@ -1,2 +1,3 @@
 # math
-SCHOOLWORK DO NOT TOUCH
+school project
+PLZ IGNORE

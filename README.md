@@ -1,1 +1,1 @@
-# math
+# pascal-quincunx

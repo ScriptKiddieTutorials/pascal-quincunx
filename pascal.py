@@ -1,10 +1,11 @@
-import random,sys,os
+import random,sys,os,itertools
 d = {}
 num = {}
 items = []
 results = []
 r = input("Enter row number: ") or 5
 
+# Getitem function to get the nth item of the mth row in pascal's triangle
 def getitem(row, item):
     if item >= row:
         raise ValueError("Error. item should not exceed row")
@@ -24,14 +25,14 @@ except ValueError:
 print("Ctrl+C to break")
 
 for x in range(row+1):
-    d['c' + str(x)] = 0
-    items.append(getitem(row+1, x))
+    d['c' + str(x)] = 0 # Assign default value 0 to all items
+    items.append(getitem(row+1, x)) # Get ratio using function geitem()
 
 while True:
     try:
         sum = 0
-        for a in range(row):
-            sum += random.getrandbits(1)
+        for _ in itertools.repeat(None, row): # Repeat row times
+            sum += random.randrange(2) # +0 or 1
         d['c' + str(sum)] += 1
     except KeyboardInterrupt:
         print(':'.join(map(str, items)))
